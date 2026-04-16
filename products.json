@@ -4,7 +4,7 @@
     "name": "Fresh Milk 500ml",
     "price": 60,
     "category": "Dairy",
-    "image": "https://picsum.photos/id/1015/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776353375/000310-1-1_cobzif.jpg",
     "description": "Fresh pasteurized cow milk"
   },
   {
@@ -12,7 +12,7 @@
     "name": "Fresh Milk 1L",
     "price": 110,
     "category": "Dairy",
-    "image": "https://picsum.photos/id/1015/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776353564/organic-raw-milk-1-litre-carton-885-dv-p_idoeou.jpg",
     "description": "Fresh pasteurized cow milk - 1 litre"
   },
   {
@@ -20,7 +20,7 @@
     "name": "Pishori Rice 2kg",
     "price": 280,
     "category": "Staples",
-    "image": "https://picsum.photos/id/1080/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776353721/s-l400_vzb7m9.png",
     "description": "High quality aromatic Pishori rice"
   },
   {
@@ -28,7 +28,7 @@
     "name": "Sugar 2kg",
     "price": 220,
     "category": "Staples",
-    "image": "https://picsum.photos/id/1077/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776353857/Kabras_20Packed_20Sugar_20White_202Kg_cfrqag.jpg",
     "description": "Pure white refined sugar"
   },
   {
@@ -36,7 +36,7 @@
     "name": "Maize Flour 2kg",
     "price": 150,
     "category": "Staples",
-    "image": "https://picsum.photos/id/106/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776353905/Copy-of-Copy-of-Social-Media-Product-Ad-800-x-800-px-37_thg8cy.jpg",
     "description": "Freshly milled maize flour (unga)"
   },
   {
@@ -44,7 +44,7 @@
     "name": "Cooking Oil 1L",
     "price": 280,
     "category": "Cooking",
-    "image": "https://picsum.photos/id/292/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354211/tullo-cooking-oil-1ltr-bottle-nazar-jan-s-supermarket_pccdfw.png",
     "description": "Pure vegetable cooking oil"
   },
   {
@@ -52,7 +52,7 @@
     "name": "White Bread 400g",
     "price": 55,
     "category": "Bakery",
-    "image": "https://picsum.photos/id/201/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354062/8153jm9iwML._AC_UF1000_1000_QL80__oopp4k.jpg",
     "description": "Fresh soft white bread"
   },
   {
@@ -60,7 +60,7 @@
     "name": "Eggs 30pcs Tray",
     "price": 320,
     "category": "Dairy",
-    "image": "https://picsum.photos/id/292/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354299/b7bb743d-b238-444b-8924-4e3fe10e754d_size3840_cropCenter_j3pv0k.jpg",
     "description": "Fresh farm eggs - full tray"
   },
   {
@@ -68,7 +68,7 @@
     "name": "Bar Soap 800g",
     "price": 120,
     "category": "Household",
-    "image": "https://picsum.photos/id/133/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354365/Lido-Clear-Laundry-Soap-Bar-800g_edqmuj.jpg",
     "description": "Quality bathing and washing soap"
   },
   {
@@ -76,7 +76,7 @@
     "name": "Washing Powder 1kg",
     "price": 180,
     "category": "Household",
-    "image": "https://picsum.photos/id/133/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354767/Ariel-Complete-Detergent-Washing-Powder-1kg__51405.1749289239_m3ic8w.jpg",
     "description": "Powerful laundry detergent"
   },
   {
@@ -84,7 +84,7 @@
     "name": "Tea Leaves 100g",
     "price": 85,
     "category": "Beverages",
-    "image": "https://picsum.photos/id/292/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354716/71fcrIFQXnL._AC_UL495_SR435_495__enns3d.jpg",
     "description": "Strong Kenyan tea leaves"
   },
   {
@@ -92,7 +92,7 @@
     "name": "Tomato Paste 400g",
     "price": 95,
     "category": "Cooking",
-    "image": "https://picsum.photos/id/292/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354636/Safa-Tomato-Paste-24x400g_bij171.jpg",
     "description": "Thick and rich tomato paste"
   },
   {
@@ -100,7 +100,7 @@
     "name": "Salt 1kg",
     "price": 45,
     "category": "Staples",
-    "image": "https://picsum.photos/id/1077/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354597/s-l300_wwujhg.jpg",
     "description": "Iodized table salt"
   },
   {
@@ -108,7 +108,7 @@
     "name": "Royco Mchuzi Mix 100g",
     "price": 65,
     "category": "Cooking",
-    "image": "https://picsum.photos/id/292/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354541/Original-Royco-Mchuzi-Mix-Beef-Flavor-Premium-Product-From-Kenya-Beef-Flavor-Seasoning_521d24b6-6805-45b3-bc13-9aaf37f44dd4.c4c953bdcc065c7c446bed40d159696d_vyrpgk.jpg",
     "description": "All-purpose seasoning"
   },
   {
@@ -116,7 +116,7 @@
     "name": "Toilet Tissue 4 Rolls",
     "price": 120,
     "category": "Household",
-    "image": "https://picsum.photos/id/133/300/300",
+    "image": "https://res.cloudinary.com/dwaqbsthr/image/upload/v1776354479/Scott-ComfortPlus-Toilet-Paper-Regular-Roll-4-Rolls-Bath-Tissue_e552220f-2ffd-4171-8fe6-2820bfb5cd18.5c413470ef7cedd25cbaa5aef190fc06_r7mzqg.jpg",
     "description": "Soft and strong toilet paper"
   }
 ]
