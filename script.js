@@ -24,22 +24,21 @@ let cart = [];
 async function loadProducts() {
     let allProducts = [];
 
-    // 1. Load from products.json
+    // Load from products.json
     try {
         const response = await fetch('products.json');
         const data = await response.json();
         allProducts = Array.isArray(data) ? data : (data.products || []);
     } catch (e) {
-        console.warn("products.json not found or invalid");
+        console.warn("products.json not found");
     }
 
-    // 2. Load added products from localStorage and merge
+    // Merge with added products from Admin
     const saved = localStorage.getItem('mamaBensProducts');
     if (saved) {
-        const addedProducts = JSON.parse(saved);
-        // Merge without duplicates (by id)
+        const added = JSON.parse(saved);
         const existingIds = new Set(allProducts.map(p => p.id));
-        addedProducts.forEach(product => {
+        added.forEach(product => {
             if (!existingIds.has(product.id)) {
                 allProducts.push(product);
             }
@@ -51,7 +50,7 @@ async function loadProducts() {
     renderCategoryFilters();
 }
 
-// Render products on homepage
+// Render products
 function renderProducts(filtered = products) {
     const grid = document.getElementById('product-grid');
     if (!grid) return;
@@ -100,14 +99,40 @@ function filterCategory(category) {
     else renderProducts(products.filter(p => p.category === category));
 }
 
-// ====================== CART (with persistence) ======================
+// ====================== SEARCH (Fixed) ======================
+function setupSearch() {
+    const input = document.getElementById('search-input');
+    if (!input) return;
+
+    input.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase().trim();
+        
+        if (term === '') {
+            renderProducts(products);
+            return;
+        }
+
+        const filtered = products.filter(product => 
+            product.name.toLowerCase().includes(term) ||
+            (product.description && product.description.toLowerCase().includes(term)) ||
+            (product.category && product.category.toLowerCase().includes(term))
+        );
+
+        renderProducts(filtered);
+    });
+}
+
+// ====================== CART FUNCTIONS ======================
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     if (!product) return;
 
     const existing = cart.find(item => item.id === id);
-    if (existing) existing.quantity += 1;
-    else cart.push({ ...product, quantity: 1 });
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
 
     saveCart();
     updateCartCount();
