@@ -20,33 +20,29 @@ const deliveryLocations = {
 let products = [];
 let cart = [];
 
-// Load cart from localStorage on start
-function loadCart() {
-    const savedCart = localStorage.getItem('mamaBensCart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-    }
-}
-
-// Save cart to localStorage
-function saveCart() {
-    localStorage.setItem('mamaBensCart', JSON.stringify(cart));
-}
-
-// ====================== LOAD PRODUCTS ======================
+// Load products from localStorage or products.json
 async function loadProducts() {
-    try {
-        const response = await fetch('products.json');
-        const data = await response.json();
-        products = Array.isArray(data) ? data : (data.products || []);
-        renderProducts();
-        renderCategoryFilters();
-    } catch (error) {
-        console.error("Failed to load products:", error);
+    // Try localStorage first (from Admin Panel)
+    const savedProducts = localStorage.getItem('mamaBensProducts');
+    if (savedProducts) {
+        products = JSON.parse(savedProducts);
+    } else {
+        // Fallback to products.json
+        try {
+            const response = await fetch('products.json');
+            const data = await response.json();
+            products = Array.isArray(data) ? data : (data.products || []);
+            localStorage.setItem('mamaBensProducts', JSON.stringify(products));
+        } catch (error) {
+            console.error("Failed to load products.json", error);
+            products = [];
+        }
     }
+    renderProducts();
+    renderCategoryFilters();
 }
 
-// ====================== RENDER PRODUCTS ======================
+// Render products on homepage
 function renderProducts(filtered = products) {
     const grid = document.getElementById('product-grid');
     if (!grid) return;
@@ -70,7 +66,7 @@ function renderProducts(filtered = products) {
     grid.innerHTML = html || '<p class="col-span-full text-center py-20 text-gray-500">No products found</p>';
 }
 
-// Category Filters (same as before)
+// Category Filters
 function renderCategoryFilters() {
     const categories = [...new Set(products.map(p => p.category))];
     const container = document.getElementById('category-filters');
@@ -107,9 +103,18 @@ function addToCart(id) {
         cart.push({ ...product, quantity: 1 });
     }
 
-    saveCart();           // Save to localStorage
+    saveCart();
     updateCartCount();
     showToast(`${product.name} added to cart`);
+}
+
+function saveCart() {
+    localStorage.setItem('mamaBensCart', JSON.stringify(cart));
+}
+
+function loadCart() {
+    const saved = localStorage.getItem('mamaBensCart');
+    if (saved) cart = JSON.parse(saved);
 }
 
 function updateCartCount() {
@@ -125,8 +130,81 @@ function toggleCart() {
 }
 
 function renderCart() {
-    // ... (same clean cart rendering as previous version)
-    // I kept it short here for space, but use the full renderCart from my previous message
+    const container = document.getElementById('cart-modal').querySelector('div');
+    if (!container) return;
+
+    let subtotal = 0;
+    let html = `
+        <div class="p-6 border-b dark:border-slate-700 flex justify-between items-center bg-white dark:bg-slate-900 sticky top-0 z-10">
+            <h2 class="text-2xl font-bold">Your Cart</h2>
+            <button onclick="toggleCart()" class="text-4xl leading-none text-gray-400">×</button>
+        </div>
+        <div class="p-6 max-h-[55vh] overflow-y-auto">`;
+
+    if (cart.length === 0) {
+        html += `<p class="text-center py-16 text-gray-500">Your cart is empty</p>`;
+    } else {
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            html += `
+                <div class="flex gap-4 py-6 border-b dark:border-slate-700">
+                    <img src="${item.image}" class="w-20 h-20 object-cover rounded-2xl">
+                    <div class="flex-1">
+                        <p class="font-semibold">${item.name}</p>
+                        <p class="text-emerald-600">KSh ${item.price} × ${item.quantity}</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-bold">KSh ${itemTotal}</p>
+                        <div class="flex gap-3 mt-3">
+                            <button onclick="changeQuantity(${item.id}, -1)" class="w-8 h-8 border rounded-xl">-</button>
+                            <span class="w-8 text-center font-medium">${item.quantity}</span>
+                            <button onclick="changeQuantity(${item.id}, 1)" class="w-8 h-8 border rounded-xl">+</button>
+                            <button onclick="removeFromCart(${item.id})" class="ml-4 text-red-500 text-sm">Remove</button>
+                        </div>
+                    </div>
+                </div>`;
+        });
+    }
+
+    html += `</div>`;
+
+    html += `
+        <div class="p-6 border-t dark:border-slate-700 bg-gray-50 dark:bg-slate-800">
+            <div class="space-y-4 mb-6">
+                <div class="flex justify-between">
+                    <span>Subtotal</span>
+                    <span class="font-semibold">KSh ${subtotal}</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span>Delivery</span>
+                    <select id="delivery-option" onchange="updateDeliveryFee()" class="bg-transparent border rounded-xl px-4 py-2">
+                        <option value="pickup">Pickup (Free)</option>
+                        <option value="delivery">Delivery</option>
+                    </select>
+                </div>
+                <div id="location-group" class="hidden flex justify-between items-center">
+                    <span>Location</span>
+                    <select id="delivery-location" onchange="updateDeliveryFee()" class="bg-transparent border rounded-xl px-4 py-2">
+                        ${Object.entries(deliveryLocations).map(([loc, fee]) => 
+                            `<option value="${loc}">${loc} - KSh ${fee}</option>`
+                        ).join('')}
+                    </select>
+                </div>
+                <div class="flex justify-between text-xl font-bold pt-4 border-t dark:border-slate-600">
+                    <span>Total</span>
+                    <span id="grand-total" class="text-emerald-600">KSh ${subtotal}</span>
+                </div>
+            </div>
+
+            <button onclick="placeWhatsAppOrder()" 
+                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-5 rounded-3xl text-lg font-semibold">
+                Order via WhatsApp
+            </button>
+        </div>`;
+
+    container.innerHTML = html;
+    updateDeliveryFee();
 }
 
 function changeQuantity(id, delta) {
@@ -146,7 +224,23 @@ function removeFromCart(id) {
     renderCart();
 }
 
-// Clean WhatsApp Order (same as before - with line breaks)
+function updateDeliveryFee() {
+    const option = document.getElementById('delivery-option').value;
+    const group = document.getElementById('location-group');
+    let fee = 0;
+
+    if (option === 'delivery') {
+        group.classList.remove('hidden');
+        const loc = document.getElementById('delivery-location').value;
+        fee = deliveryLocations[loc] || 0;
+    } else {
+        group.classList.add('hidden');
+    }
+
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    document.getElementById('grand-total').textContent = `KSh ${subtotal + fee}`;
+}
+
 function placeWhatsAppOrder() {
     if (cart.length === 0) return;
 
@@ -187,7 +281,7 @@ function placeWhatsAppOrder() {
     }, 800);
 }
 
-// Mobile Menu, Theme, Toast, Init (same as previous clean version)
+// ====================== MOBILE MENU & THEME ======================
 function setupMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -207,8 +301,9 @@ function showToast(msg) {
     setTimeout(() => toast.remove(), 2800);
 }
 
+// ====================== INIT ======================
 function init() {
-    loadCart();           // Load saved cart
+    loadCart();
     loadProducts();
     setupMobileMenu();
     setupTheme();
