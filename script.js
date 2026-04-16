@@ -20,24 +20,33 @@ const deliveryLocations = {
 let products = [];
 let cart = [];
 
-// Load products from localStorage or products.json
+// Load products (merge json + localStorage)
 async function loadProducts() {
-    // Try localStorage first (from Admin Panel)
-    const savedProducts = localStorage.getItem('mamaBensProducts');
-    if (savedProducts) {
-        products = JSON.parse(savedProducts);
-    } else {
-        // Fallback to products.json
-        try {
-            const response = await fetch('products.json');
-            const data = await response.json();
-            products = Array.isArray(data) ? data : (data.products || []);
-            localStorage.setItem('mamaBensProducts', JSON.stringify(products));
-        } catch (error) {
-            console.error("Failed to load products.json", error);
-            products = [];
-        }
+    let allProducts = [];
+
+    // 1. Load from products.json
+    try {
+        const response = await fetch('products.json');
+        const data = await response.json();
+        allProducts = Array.isArray(data) ? data : (data.products || []);
+    } catch (e) {
+        console.warn("products.json not found or invalid");
     }
+
+    // 2. Load added products from localStorage and merge
+    const saved = localStorage.getItem('mamaBensProducts');
+    if (saved) {
+        const addedProducts = JSON.parse(saved);
+        // Merge without duplicates (by id)
+        const existingIds = new Set(allProducts.map(p => p.id));
+        addedProducts.forEach(product => {
+            if (!existingIds.has(product.id)) {
+                allProducts.push(product);
+            }
+        });
+    }
+
+    products = allProducts;
     renderProducts();
     renderCategoryFilters();
 }
@@ -91,17 +100,14 @@ function filterCategory(category) {
     else renderProducts(products.filter(p => p.category === category));
 }
 
-// ====================== CART FUNCTIONS ======================
+// ====================== CART (with persistence) ======================
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     if (!product) return;
 
     const existing = cart.find(item => item.id === id);
-    if (existing) {
-        existing.quantity += 1;
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
+    if (existing) existing.quantity += 1;
+    else cart.push({ ...product, quantity: 1 });
 
     saveCart();
     updateCartCount();
