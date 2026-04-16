@@ -90,12 +90,118 @@
             <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm">
                 <h2 class="text-2xl font-semibold mb-6">All Products</h2>
                 <div id="admin-products-list" class="space-y-6">
-                    <!-- Populated by JavaScript -->
+                    <!-- Populated by JS -->
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Admin functions embedded directly in the file
+        let products = [];
+
+        function loginAdmin() {
+            const password = document.getElementById('admin-password').value;
+            if (password === "admin123") {
+                document.getElementById('login-screen').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                loadAdminProducts();
+            } else {
+                alert("Incorrect password! Default is: admin123");
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('login-screen').classList.remove('hidden');
+            document.getElementById('admin-dashboard').classList.add('hidden');
+            document.getElementById('admin-password').value = '';
+        }
+
+        function loadAdminProducts() {
+            // Load from localStorage or products.json
+            const saved = localStorage.getItem('mamaBensProducts');
+            if (saved) {
+                products = JSON.parse(saved);
+            }
+            renderAdminProducts();
+        }
+
+        function renderAdminProducts() {
+            const container = document.getElementById('admin-products-list');
+            if (!container) return;
+
+            let html = '';
+            products.forEach(product => {
+                html += `
+                    <div class="flex gap-4 items-center border-b dark:border-slate-700 pb-4">
+                        <img src="${product.image}" alt="${product.name}" class="w-16 h-16 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <p class="font-medium">${product.name}</p>
+                            <p class="text-emerald-600">KSh ${product.price} • ${product.category}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editProduct(${product.id})" class="px-4 py-2 text-sm border rounded-xl">Edit</button>
+                            <button onclick="deleteProduct(${product.id})" class="px-4 py-2 text-sm border border-red-500 text-red-500 rounded-xl">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html || '<p class="text-center py-8 text-gray-500">No products yet. Add some from the form above.</p>';
+        }
+
+        function addNewProduct() {
+            const name = document.getElementById('new-name').value.trim();
+            const price = parseInt(document.getElementById('new-price').value);
+            const category = document.getElementById('new-category').value.trim();
+            const image = document.getElementById('new-image').value.trim();
+            const description = document.getElementById('new-description').value.trim();
+
+            if (!name || !price || !category || !image) {
+                alert("Please fill Name, Price, Category and Image URL");
+                return;
+            }
+
+            const newProduct = {
+                id: Date.now(),
+                name,
+                price,
+                category,
+                image,
+                description: description || "No description"
+            };
+
+            products.unshift(newProduct);
+            localStorage.setItem('mamaBensProducts', JSON.stringify(products));
+            renderAdminProducts();
+
+            // Clear form
+            document.getElementById('new-name').value = '';
+            document.getElementById('new-price').value = '';
+            document.getElementById('new-category').value = '';
+            document.getElementById('new-image').value = '';
+            document.getElementById('new-description').value = '';
+
+            alert("Product added successfully!");
+        }
+
+        function editProduct(id) {
+            alert("Edit feature coming soon. For now, delete and add again.");
+        }
+
+        function deleteProduct(id) {
+            if (confirm("Delete this product?")) {
+                products = products.filter(p => p.id !== id);
+                localStorage.setItem('mamaBensProducts', JSON.stringify(products));
+                renderAdminProducts();
+            }
+        }
+
+        // Auto load products when dashboard opens
+        function initAdmin() {
+            // Nothing extra needed
+        }
+
+        window.onload = initAdmin;
+    </script>
 </body>
 </html>
