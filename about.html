@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About MamaBen's Shop Emasatsi - Your trusted local shop in Kakamega County for fresh milk, rice, sugar, maize flour and daily household essentials.">
+    <title>About Us - MamaBen's Shop Emasatsi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-50 border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-emerald-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">MB</div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">MamaBen's</h1>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 -mt-1">Emasatsi • Kakamega</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 font-medium text-gray-700 dark:text-gray-300">
+                    <a href="index.html" class="hover:text-emerald-600">Home</a>
+                    <a href="about.html" class="text-emerald-600 font-semibold">About</a>
+                    <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-5">
+                    <button id="theme-toggle" class="text-2xl p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800">🌙</button>
+                    <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-700 dark:text-gray-300">☰</button>
+                    <div onclick="toggleCart()" class="relative cursor-pointer">
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full">0</span>
+                        <span class="text-3xl">🛒</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t px-4 py-4">
+            <div class="flex flex-col space-y-4 text-lg font-medium">
+                <a href="index.html" class="py-2">Home</a>
+                <a href="about.html" class="py-2 text-emerald-600">About</a>
+                <a href="contact.html" class="py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-bold mb-6">About MamaBen's Shop</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400">
+                Your trusted local shop in Emasatsi, Kakamega County
+            </p>
+        </div>
+
+        <!-- Story -->
+        <div class="prose dark:prose-invert max-w-none text-lg leading-relaxed mb-16">
+            <h2 class="text-3xl font-semibold mb-8 text-emerald-700 dark:text-emerald-400">Our Story</h2>
+            <p class="mb-8">
+                MamaBen's Shop was founded with one simple goal — to provide fresh, quality daily essentials to families in Emasatsi and surrounding areas in Kakamega County at fair prices.
+            </p>
+            <p>
+                What started as a small family kiosk has grown into a trusted name because we focus on freshness, honesty, and convenience. We understand the needs of local families and work hard to serve you better every day.
+            </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-10 shadow-sm mb-16">
+            <h2 class="text-3xl font-semibold mb-8 text-center">Our Mission</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🌾</div>
+                    <h3 class="font-semibold text-xl mb-3">Freshness Guaranteed</h3>
+                    <p class="text-gray-600 dark:text-gray-400">We restock daily to ensure you always get the freshest products.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="font-semibold text-xl mb-3">Fair & Honest Prices</h3>
+                    <p class="text-gray-600 dark:text-gray-400">We believe quality should be affordable for every family in our community.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What We Sell -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-semibold mb-10 text-center">What We Offer</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl text-center">
+                    <span class="text-4xl block mb-4">🥛</span>
+                    <p class="font-medium">Fresh Milk & Dairy</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl text-center">
+                    <span class="text-4xl block mb-4">🌾</span>
+                    <p class="font-medium">Rice & Maize Flour</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl text-center">
+                    <span class="text-4xl block mb-4">🍚</span>
+                    <p class="font-medium">Sugar & Cooking Oil</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl text-center">
+                    <span class="text-4xl block mb-4">🧼</span>
+                    <p class="font-medium">Soap & Detergents</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl text-center">
+                    <span class="text-4xl block mb-4">🍞</span>
+                    <p class="font-medium">Bread & Eggs</p>
+                </div>
+                <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl text-center">
+                    <span class="text-4xl block mb-4">🍵</span>
+                    <p class="font-medium">Tea Leaves & Spices</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Message -->
+        <div class="bg-emerald-50 dark:bg-emerald-950 rounded-3xl p-12 text-center">
+            <h2 class="text-3xl font-semibold mb-6">Trusted by Local Families</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-lg mx-auto">
+                Many families in Emasatsi and surrounding areas have been shopping with us for years. 
+                We are proud to be part of this community and will continue to serve you with honesty and care.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

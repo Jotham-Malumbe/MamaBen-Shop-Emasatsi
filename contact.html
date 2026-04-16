@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact MamaBen's Shop Emasatsi - Call or WhatsApp 0115652612 for orders and inquiries. Located in Emasatsi Market, Kakamega County.">
+    <title>Contact Us - MamaBen's Shop Emasatsi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-gray-100">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-50 border-b">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-emerald-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">MB</div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">MamaBen's</h1>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 -mt-1">Emasatsi • Kakamega</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8 font-medium text-gray-700 dark:text-gray-300">
+                    <a href="index.html" class="hover:text-emerald-600">Home</a>
+                    <a href="about.html" class="hover:text-emerald-600">About</a>
+                    <a href="contact.html" class="text-emerald-600 font-semibold">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-5">
+                    <button id="theme-toggle" class="text-2xl p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-800">🌙</button>
+                    <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-700 dark:text-gray-300">☰</button>
+                    <div onclick="toggleCart()" class="relative cursor-pointer">
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold h-5 w-5 flex items-center justify-center rounded-full">0</span>
+                        <span class="text-3xl">🛒</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t px-4 py-4">
+            <div class="flex flex-col space-y-4 text-lg font-medium">
+                <a href="index.html" class="py-2">Home</a>
+                <a href="about.html" class="py-2">About</a>
+                <a href="contact.html" class="py-2 text-emerald-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4">Get In Touch</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400">We're here to help. Order or ask any question via WhatsApp or call.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Contact Details -->
+            <div class="space-y-10">
+                <div>
+                    <h2 class="text-3xl font-semibold mb-8">Contact Information</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-5">
+                            <div class="text-4xl">📞</div>
+                            <div>
+                                <p class="font-medium text-lg">Phone / WhatsApp</p>
+                                <a href="https://wa.me/254115652612" target="_blank" 
+                                   class="text-3xl font-bold text-emerald-600 hover:underline">
+                                    0115652612
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="text-4xl">📍</div>
+                            <div>
+                                <p class="font-medium text-lg">Shop Location</p>
+                                <p class="text-xl">MamaBen's Shop</p>
+                                <p class="text-gray-600 dark:text-gray-400">Emasatsi Market</p>
+                                <p class="text-gray-600 dark:text-gray-400">Kakamega County, Kenya</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-5">
+                            <div class="text-4xl">🕒</div>
+                            <div>
+                                <p class="font-medium text-lg">Opening Hours</p>
+                                <p class="text-gray-600 dark:text-gray-400">Monday - Saturday: 6:30 AM - 8:00 PM</p>
+                                <p class="text-gray-600 dark:text-gray-400">Sunday: 7:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Big WhatsApp Button -->
+                <div class="bg-emerald-50 dark:bg-emerald-950 border border-emerald-200 dark:border-emerald-800 rounded-3xl p-10 text-center">
+                    <div class="text-6xl mb-6">💬</div>
+                    <h3 class="text-3xl font-semibold mb-4">Order on WhatsApp</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 text-lg">
+                        Fastest and easiest way to place your order. We reply quickly!
+                    </p>
+                    <a href="https://wa.me/254115652612" target="_blank"
+                       class="inline-flex items-center gap-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-12 py-5 rounded-3xl text-xl transition-all">
+                        Chat on WhatsApp Now
+                        <span class="text-3xl">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div>
+                <h2 class="text-3xl font-semibold mb-8">Our Location</h2>
+                <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-sm border border-gray-200 dark:border-slate-700">
+                    <!-- Google Maps Embed for Emasatsi, Kakamega -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15950.0!2d34.65!3d0.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDA5JzAwLjAiTiAzNMKwMzknMDAuMCJF!5e0!3m2!1sen!2ske!4v1740000000000" 
+                        width="100%" 
+                        height="420" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <p class="text-center mt-4 text-gray-500 text-sm">
+                    Emasatsi Market, Kakamega County
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

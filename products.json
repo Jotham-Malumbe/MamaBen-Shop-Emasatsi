@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Fresh Milk 500ml",
+    "price": 60,
+    "category": "Dairy",
+    "image": "https://picsum.photos/id/1015/300/300",
+    "description": "Fresh pasteurized cow milk"
+  },
+  {
+    "id": 2,
+    "name": "Fresh Milk 1L",
+    "price": 110,
+    "category": "Dairy",
+    "image": "https://picsum.photos/id/1015/300/300",
+    "description": "Fresh pasteurized cow milk - 1 litre"
+  },
+  {
+    "id": 3,
+    "name": "Pishori Rice 2kg",
+    "price": 280,
+    "category": "Staples",
+    "image": "https://picsum.photos/id/1080/300/300",
+    "description": "High quality aromatic Pishori rice"
+  },
+  {
+    "id": 4,
+    "name": "Sugar 2kg",
+    "price": 220,
+    "category": "Staples",
+    "image": "https://picsum.photos/id/1077/300/300",
+    "description": "Pure white refined sugar"
+  },
+  {
+    "id": 5,
+    "name": "Maize Flour 2kg",
+    "price": 150,
+    "category": "Staples",
+    "image": "https://picsum.photos/id/106/300/300",
+    "description": "Freshly milled maize flour (unga)"
+  },
+  {
+    "id": 6,
+    "name": "Cooking Oil 1L",
+    "price": 280,
+    "category": "Cooking",
+    "image": "https://picsum.photos/id/292/300/300",
+    "description": "Pure vegetable cooking oil"
+  },
+  {
+    "id": 7,
+    "name": "White Bread 400g",
+    "price": 55,
+    "category": "Bakery",
+    "image": "https://picsum.photos/id/201/300/300",
+    "description": "Fresh soft white bread"
+  },
+  {
+    "id": 8,
+    "name": "Eggs 30pcs Tray",
+    "price": 320,
+    "category": "Dairy",
+    "image": "https://picsum.photos/id/292/300/300",
+    "description": "Fresh farm eggs - full tray"
+  },
+  {
+    "id": 9,
+    "name": "Bar Soap 800g",
+    "price": 120,
+    "category": "Household",
+    "image": "https://picsum.photos/id/133/300/300",
+    "description": "Quality bathing and washing soap"
+  },
+  {
+    "id": 10,
+    "name": "Washing Powder 1kg",
+    "price": 180,
+    "category": "Household",
+    "image": "https://picsum.photos/id/133/300/300",
+    "description": "Powerful laundry detergent"
+  },
+  {
+    "id": 11,
+    "name": "Tea Leaves 100g",
+    "price": 85,
+    "category": "Beverages",
+    "image": "https://picsum.photos/id/292/300/300",
+    "description": "Strong Kenyan tea leaves"
+  },
+  {
+    "id": 12,
+    "name": "Tomato Paste 400g",
+    "price": 95,
+    "category": "Cooking",
+    "image": "https://picsum.photos/id/292/300/300",
+    "description": "Thick and rich tomato paste"
+  },
+  {
+    "id": 13,
+    "name": "Salt 1kg",
+    "price": 45,
+    "category": "Staples",
+    "image": "https://picsum.photos/id/1077/300/300",
+    "description": "Iodized table salt"
+  },
+  {
+    "id": 14,
+    "name": "Royco Mchuzi Mix 100g",
+    "price": 65,
+    "category": "Cooking",
+    "image": "https://picsum.photos/id/292/300/300",
+    "description": "All-purpose seasoning"
+  },
+  {
+    "id": 15,
+    "name": "Toilet Tissue 4 Rolls",
+    "price": 120,
+    "category": "Household",
+    "image": "https://picsum.photos/id/133/300/300",
+    "description": "Soft and strong toilet paper"
+  }
+]

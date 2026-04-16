@@ -1,0 +1,169 @@
+/* ====================== TAILWIND BASE ====================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====================== CUSTOM DESIGN ====================== */
+:root {
+    --primary: #10b981;   /* Emerald Green */
+    --accent: #f97316;    /* Warm Orange */
+}
+
+body {
+    font-family: 'Inter', system_ui, sans-serif;
+}
+
+/* Navbar */
+nav {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* Hero */
+.hero-gradient {
+    background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+}
+
+/* Product Cards */
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.dark .product-card {
+    background: #1e2937;
+    border-color: #334155;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.product-image {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Category Buttons */
+.category-btn {
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-weight: 500;
+    border: 2px solid #e2e8f0;
+    background: white;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.dark .category-btn {
+    border-color: #475569;
+    background: #1e2937;
+    color: #cbd5e1;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+}
+
+.dark .testimonial-card {
+    background: #1e2937;
+}
+
+/* Cart Modal */
+#cart-modal > div {
+    max-height: 92vh;
+    overflow-y: auto;
+}
+
+.cart-item {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dark .cart-item {
+    border-color: #334155;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 14px 32px;
+}
+
+.btn-primary:hover {
+    background-color: #059669;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+    font-weight: 600;
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* General Improvements */
+.shadow-soft {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Dark Mode */
+.dark {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .product-image {
+        height: 160px;
+    }
+}
